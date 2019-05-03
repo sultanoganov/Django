@@ -1,0 +1,25 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+	{% for todo in todo_list %}
+		{% if todo.status == 'Сделано' %}
+			<ul class="task-block">
+				<li class="task"><a href="{% url 'todo_detail' pk=todo.pk %}">{{ todo.task }}</a></li>
+				<li class="status done">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+		{% if todo.status == 'Надо сделать' %}
+			<ul class="task-block">
+				<li class="task"><a href="{% url 'todo_detail' pk=todo.pk %}">{{ todo.task }}</a></li>
+				<li class="status to-do">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+		{% if todo.status == 'Отменено' %}
+			<ul class="task-block">
+				<li class="task"><a href="{% url 'todo_detail' pk=todo.pk %}">{{ todo.task }}</a></li>
+				<li class="status canceled">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

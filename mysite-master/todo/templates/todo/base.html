@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
+
+</head>
+<body>
+	<header>
+		<h1><a href="/"> TO DO APP</a></h1>
+		<a href="{% url 'todo_new' %}" class="top-menu"><button type="button">Добавить</button></a>
+	</header>
+	<main>
+		{% block content %}
+    		
+		{% endblock %}
+	</main>
+
+</body>
+</html>
